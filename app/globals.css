@@ -1,0 +1,166 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--site-font-sans);
+  --font-heading: var(--site-font-sans);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+}
+
+:root {
+  --site-font-sans: 'Pretendard Variable', Pretendard, 'Noto Sans KR',
+    'Apple SD Gothic Neo', system-ui, sans-serif;
+  --background: oklch(0.975 0.025 78);
+  --foreground: oklch(0.29 0.035 48);
+  --card: oklch(0.995 0.01 82);
+  --card-foreground: oklch(0.29 0.035 48);
+  --primary: oklch(0.48 0.13 47);
+  --primary-foreground: oklch(0.99 0.012 82);
+  --secondary: oklch(0.91 0.075 72);
+  --secondary-foreground: oklch(0.37 0.09 48);
+  --muted: oklch(0.94 0.035 75);
+  --muted-foreground: oklch(0.49 0.045 50);
+  --accent: oklch(0.86 0.095 54);
+  --accent-foreground: oklch(0.53 0.13 43);
+  --destructive: oklch(0.58 0.2 27);
+  --border: oklch(0.87 0.055 68);
+  --input: oklch(0.87 0.055 68);
+  --ring: oklch(0.61 0.13 50);
+  --radius: 0.9rem;
+}
+
+.dark {
+  --background: oklch(0.24 0.035 45);
+  --foreground: oklch(0.94 0.025 77);
+  --card: oklch(0.29 0.04 45);
+  --card-foreground: oklch(0.94 0.025 77);
+  --primary: oklch(0.75 0.12 55);
+  --primary-foreground: oklch(0.22 0.035 42);
+  --secondary: oklch(0.37 0.065 48);
+  --secondary-foreground: oklch(0.93 0.025 77);
+  --muted: oklch(0.32 0.04 47);
+  --muted-foreground: oklch(0.75 0.035 67);
+  --accent: oklch(0.44 0.09 47);
+  --accent-foreground: oklch(0.86 0.08 62);
+  --destructive: oklch(0.67 0.17 25);
+  --border: oklch(0.44 0.045 48);
+  --input: oklch(0.44 0.045 48);
+  --ring: oklch(0.7 0.11 55);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--site-font-sans);
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .brand-mark {
+    display: inline-flex;
+    width: 2.6rem;
+    height: 2.6rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-size: 1.05rem;
+    font-weight: 900;
+    box-shadow: 0 8px 20px rgb(125 64 34 / 18%);
+    transform: rotate(-4deg);
+  }
+
+  .warm-glow {
+    position: absolute;
+    z-index: -1;
+    border-radius: 999px;
+    filter: blur(2px);
+    pointer-events: none;
+  }
+
+  .warm-glow-one {
+    top: -9rem;
+    right: -8rem;
+    width: min(42rem, 80vw);
+    height: min(42rem, 80vw);
+    background: radial-gradient(
+      circle,
+      rgb(244 183 128 / 62%) 0%,
+      rgb(244 183 128 / 0%) 70%
+    );
+  }
+
+  .warm-glow-two {
+    bottom: -15rem;
+    left: -12rem;
+    width: min(38rem, 90vw);
+    height: min(38rem, 90vw);
+    background: radial-gradient(
+      circle,
+      rgb(231 157 105 / 34%) 0%,
+      rgb(231 157 105 / 0%) 72%
+    );
+  }
+
+  .benefit-card {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: card-in 600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+@keyframes card-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
