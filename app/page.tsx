@@ -34,13 +34,10 @@ export default function Home() {
           <a
             href="#top"
             className="inline-flex items-center gap-2 rounded-full focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/30"
-            aria-label="멍메이트 처음으로"
+            aria-label="처음으로"
           >
             <span className="brand-mark" aria-hidden="true">
               M
-            </span>
-            <span className="text-xl font-extrabold tracking-[-0.04em] sm:text-2xl">
-              멍메이트
             </span>
           </a>
         </header>
@@ -53,15 +50,12 @@ export default function Home() {
             <p className="mb-5 inline-flex items-center rounded-full border border-primary/15 bg-white/70 px-4 py-2 text-sm font-bold text-primary shadow-sm backdrop-blur">
               내 차를 위한 다정한 선택 가이드
             </p>
-            <h1 className="text-balance text-[clamp(3.35rem,9vw,6.8rem)] font-black leading-[0.92] tracking-[-0.075em] text-primary">
-              멍메이트
-            </h1>
-            <p className="mt-6 max-w-xl text-balance text-2xl font-bold leading-snug tracking-[-0.035em] text-foreground sm:text-3xl lg:text-[2.15rem]">
+            <h1 className="mt-6 max-w-xl text-balance text-4xl font-black leading-tight tracking-[-0.055em] text-primary sm:text-5xl lg:text-6xl">
               자동차 다이렉트 가 좋은이유
-            </p>
+            </h1>
             <p className="mt-5 max-w-lg text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-              어렵게 느껴지는 자동차 다이렉트, 멍메이트가 꼭 필요한 내용만
-              쉽고 편안하게 안내해 드릴게요.
+              어렵게 느껴지는 자동차 다이렉트, 꼭 필요한 내용만 쉽고 편안하게
+              안내해 드릴게요.
             </p>
             <Button
               size="lg"
@@ -72,7 +66,7 @@ export default function Home() {
             </Button>
           </div>
 
-          <div className="relative z-10 grid gap-3 sm:gap-4" aria-label="멍메이트 소개">
+          <div className="relative z-10 grid gap-3 sm:gap-4" aria-label="서비스 소개">
             {benefits.map(({ icon: Icon, eyebrow, title, description }, index) => (
               <article
                 key={title}
