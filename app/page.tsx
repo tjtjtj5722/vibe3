@@ -1,95 +1,115 @@
-import { ArrowRight, BadgeCheck, Clock3, WalletCards } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowDownRight, BadgeCheck, Clock3, WalletCards } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 
 const benefits = [
   {
     icon: WalletCards,
-    eyebrow: '합리적인 선택',
+    number: '01',
     title: '중간 비용은 덜고',
-    description: '복잡한 유통 단계를 줄여 필요한 보장과 가격을 직접 비교해요.',
+    description: '필요한 보장과 가격을 직접 비교해요.',
+    color: 'bg-[#ffd44d]',
   },
   {
     icon: Clock3,
-    eyebrow: '간편한 과정',
+    number: '02',
     title: '내 시간은 아끼고',
-    description: '원하는 시간에 휴대폰으로 살펴보고 부담 없이 결정할 수 있어요.',
+    description: '원하는 시간에 휴대폰으로 살펴봐요.',
+    color: 'bg-[#ff7148]',
   },
   {
     icon: BadgeCheck,
-    eyebrow: '든든한 기준',
-    title: '선택은 더 분명하게',
-    description: '꼭 필요한 정보를 쉬운 말로 확인하고 나에게 맞게 선택해요.',
+    number: '03',
+    title: '선택은 분명하게',
+    description: '꼭 필요한 정보를 쉬운 말로 확인해요.',
+    color: 'bg-[#2e5bff] text-white',
   },
 ];
 
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
-      <section className="relative isolate min-h-screen">
-        <div aria-hidden="true" className="warm-glow warm-glow-one" />
-        <div aria-hidden="true" className="warm-glow warm-glow-two" />
-
-        <header className="mx-auto flex w-full max-w-6xl items-center px-5 py-6 sm:px-8 sm:py-8 lg:px-10">
+      <section id="top" className="brutal-grid relative isolate min-h-screen border-b-4 border-foreground">
+        <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
           <a
             href="#top"
-            className="inline-flex items-center gap-2 rounded-full focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/30"
+            className="brutal-logo focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2e5bff]/40"
             aria-label="처음으로"
           >
-            <span className="brand-mark" aria-hidden="true">
-              M
-            </span>
+            M
           </a>
+          <p className="rotate-1 border-2 border-foreground bg-white px-3 py-2 text-[11px] font-black tracking-[0.16em] shadow-[3px_3px_0_#211b17] sm:text-xs">
+            DIRECT GUIDE / 2026
+          </p>
         </header>
 
-        <div
-          id="top"
-          className="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 pb-14 pt-6 sm:px-8 sm:pb-20 sm:pt-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-10 lg:pb-24 lg:pt-14"
-        >
-          <div className="relative z-10 max-w-2xl">
-            <p className="mb-5 inline-flex items-center rounded-full border border-primary/15 bg-white/70 px-4 py-2 text-sm font-bold text-primary shadow-sm backdrop-blur">
+        <div className="mx-auto grid w-full max-w-7xl gap-9 px-5 pb-14 pt-5 sm:px-8 sm:pb-20 sm:pt-9 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:gap-14 lg:px-10 lg:pb-24 lg:pt-12">
+          <div className="relative z-10">
+            <p className="mb-6 inline-block -rotate-1 border-3 border-foreground bg-[#ffd44d] px-4 py-2 text-sm font-black shadow-[5px_5px_0_#211b17] sm:text-base">
               내 차를 위한 다정한 선택 가이드
             </p>
-            <h1 className="mt-6 max-w-xl text-balance text-4xl font-black leading-tight tracking-[-0.055em] text-primary sm:text-5xl lg:text-6xl">
-              자동차 다이렉트 가 좋은이유
+            <h1 className="max-w-2xl text-[clamp(3.1rem,8vw,6.65rem)] font-black leading-[0.94] tracking-[-0.075em] text-foreground">
+              자동차
+              <br />
+              다이렉트가
+              <br />
+              <span className="title-swipe">좋은 이유</span>
             </h1>
-            <p className="mt-5 max-w-lg text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-              어렵게 느껴지는 자동차 다이렉트, 꼭 필요한 내용만 쉽고 편안하게
-              안내해 드릴게요.
+            <p className="mt-7 max-w-lg border-l-4 border-foreground pl-4 text-base font-bold leading-7 sm:text-lg sm:leading-8">
+              어렵게 느껴지는 자동차 다이렉트,
+              <br className="hidden sm:block" /> 꼭 필요한 내용만 쉽고 빠르게 확인하세요.
             </p>
             <Button
               size="lg"
-              className="mt-8 h-14 rounded-full px-7 text-base font-bold shadow-[0_12px_30px_rgba(148,73,36,0.2)] transition-transform hover:-translate-y-0.5 sm:h-16 sm:px-9 sm:text-lg"
+              className="brutal-button mt-8 h-14 border-3 border-foreground bg-[#ff7148] px-7 text-base font-black text-foreground shadow-[6px_6px_0_#211b17] hover:bg-[#ff8a68] sm:h-16 sm:px-9 sm:text-lg"
             >
               둘러보기
-              <ArrowRight className="ml-1 size-5" aria-hidden="true" />
+              <ArrowDownRight className="ml-1 size-6" strokeWidth={3} aria-hidden="true" />
             </Button>
           </div>
 
-          <div className="relative z-10 grid gap-3 sm:gap-4" aria-label="서비스 소개">
-            {benefits.map(({ icon: Icon, eyebrow, title, description }, index) => (
-              <article
-                key={title}
-                className="benefit-card group flex gap-4 rounded-[1.75rem] border border-white/80 bg-white/76 p-5 shadow-[0_18px_50px_rgba(89,55,31,0.09)] backdrop-blur-md transition-transform duration-300 hover:-translate-y-1 sm:gap-5 sm:p-6"
-                style={{ animationDelay: `${160 + index * 110}ms` }}
-              >
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-secondary text-primary sm:size-14">
-                  <Icon className="size-6 sm:size-7" strokeWidth={2.1} aria-hidden="true" />
-                </span>
-                <div>
-                  <p className="text-xs font-extrabold tracking-[0.12em] text-accent-foreground">
-                    {eyebrow}
-                  </p>
-                  <h2 className="mt-1 text-xl font-extrabold tracking-[-0.035em] sm:text-2xl">
-                    {title}
-                  </h2>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
-                    {description}
-                  </p>
-                </div>
-              </article>
-            ))}
+          <div className="relative z-10 mx-auto w-full max-w-3xl lg:mx-0">
+            <div aria-hidden="true" className="image-backplate" />
+            <figure className="brutal-image-frame relative overflow-hidden border-4 border-foreground bg-[#ffd44d] shadow-[10px_10px_0_#211b17]">
+              <Image
+                src="/hero-brutal.png"
+                alt="주황색과 파란색의 브루탈 그래픽 배경 위에 놓인 자동차"
+                width={1536}
+                height={1024}
+                priority
+                sizes="(max-width: 1024px) 100vw, 58vw"
+                className="aspect-[4/3] h-auto w-full object-cover object-center"
+              />
+              <figcaption className="absolute bottom-3 left-3 border-3 border-foreground bg-white px-3 py-2 text-xs font-black shadow-[3px_3px_0_#211b17] sm:bottom-5 sm:left-5 sm:text-sm">
+                어렵지 않게, 직접 비교.
+              </figcaption>
+            </figure>
+            <div className="brutal-sticker" aria-hidden="true">
+              EASY
+              <br />
+              DRIVE!
+            </div>
           </div>
+        </div>
+
+        <div className="mx-auto grid w-full max-w-7xl gap-4 px-5 pb-12 sm:grid-cols-3 sm:px-8 sm:pb-16 lg:px-10">
+          {benefits.map(({ icon: Icon, number, title, description, color }, index) => (
+            <article
+              key={title}
+              className={`benefit-card-brutal ${color} border-3 border-foreground p-5 shadow-[6px_6px_0_#211b17] sm:p-6`}
+              style={{ animationDelay: `${120 + index * 100}ms` }}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <Icon className="size-8" strokeWidth={2.7} aria-hidden="true" />
+                <span className="font-mono text-sm font-black">/{number}</span>
+              </div>
+              <h2 className="mt-8 text-xl font-black tracking-[-0.04em] sm:text-2xl">{title}</h2>
+              <p className="mt-2 text-sm font-bold leading-6 opacity-80 sm:text-base">
+                {description}
+              </p>
+            </article>
+          ))}
         </div>
       </section>
     </main>

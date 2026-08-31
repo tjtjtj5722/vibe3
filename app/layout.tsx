@@ -9,11 +9,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: '자동차 다이렉트 가 좋은이유',
     description: '자동차 다이렉트 가 좋은이유',
+    images: ['/hero-brutal.png'],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: '자동차 다이렉트 가 좋은이유',
     description: '자동차 다이렉트 가 좋은이유',
+    images: ['/hero-brutal.png'],
   },
 };
 

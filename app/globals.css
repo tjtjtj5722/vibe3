@@ -34,11 +34,11 @@
 :root {
   --site-font-sans: 'Pretendard Variable', Pretendard, 'Noto Sans KR',
     'Apple SD Gothic Neo', system-ui, sans-serif;
-  --background: oklch(0.975 0.025 78);
-  --foreground: oklch(0.29 0.035 48);
+  --background: oklch(0.965 0.035 82);
+  --foreground: oklch(0.22 0.025 45);
   --card: oklch(0.995 0.01 82);
   --card-foreground: oklch(0.29 0.035 48);
-  --primary: oklch(0.48 0.13 47);
+  --primary: oklch(0.55 0.19 42);
   --primary-foreground: oklch(0.99 0.012 82);
   --secondary: oklch(0.91 0.075 72);
   --secondary-foreground: oklch(0.37 0.09 48);
@@ -49,8 +49,8 @@
   --destructive: oklch(0.58 0.2 27);
   --border: oklch(0.87 0.055 68);
   --input: oklch(0.87 0.055 68);
-  --ring: oklch(0.61 0.13 50);
-  --radius: 0.9rem;
+  --ring: oklch(0.55 0.21 264);
+  --radius: 0.25rem;
 }
 
 .dark {
@@ -93,64 +93,122 @@
 }
 
 @layer components {
-  .brand-mark {
+  .brutal-logo {
     display: inline-flex;
-    width: 2.6rem;
-    height: 2.6rem;
+    width: 3rem;
+    height: 3rem;
     align-items: center;
     justify-content: center;
-    border-radius: 1rem;
-    background: var(--primary);
-    color: var(--primary-foreground);
-    font-size: 1.05rem;
+    border: 3px solid var(--foreground);
+    background: #ff7148;
+    color: var(--foreground);
+    font-size: 1.15rem;
     font-weight: 900;
-    box-shadow: 0 8px 20px rgb(125 64 34 / 18%);
-    transform: rotate(-4deg);
+    box-shadow: 5px 5px 0 var(--foreground);
+    transform: rotate(-3deg);
+    transition: transform 150ms ease, box-shadow 150ms ease;
   }
 
-  .warm-glow {
+  .brutal-logo:hover {
+    transform: rotate(1deg) translate(2px, 2px);
+    box-shadow: 3px 3px 0 var(--foreground);
+  }
+
+  .brutal-grid {
+    background-color: var(--background);
+    background-image: radial-gradient(rgb(33 27 23 / 13%) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .title-swipe {
+    display: inline;
+    padding: 0 0.12em 0.04em;
+    color: #fff8e8;
+    background: linear-gradient(176deg, transparent 8%, #2e5bff 8%, #2e5bff 91%, transparent 91%);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .brutal-button {
+    border-radius: 0;
+    transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+  }
+
+  .brutal-button:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 var(--foreground);
+  }
+
+  .image-backplate {
     position: absolute;
+    inset: -0.8rem 0.7rem 0.8rem -0.7rem;
     z-index: -1;
+    border: 4px solid var(--foreground);
+    background: #2e5bff;
+    transform: rotate(2.5deg);
+  }
+
+  .brutal-image-frame {
+    transform: rotate(-1deg);
+  }
+
+  .brutal-sticker {
+    position: absolute;
+    top: -1.4rem;
+    right: -0.4rem;
+    display: flex;
+    width: 6rem;
+    height: 6rem;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--foreground);
     border-radius: 999px;
-    filter: blur(2px);
-    pointer-events: none;
+    background: #ffd44d;
+    color: var(--foreground);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.8rem;
+    font-weight: 900;
+    line-height: 1.05;
+    text-align: center;
+    transform: rotate(9deg);
+    box-shadow: 4px 4px 0 var(--foreground);
   }
 
-  .warm-glow-one {
-    top: -9rem;
-    right: -8rem;
-    width: min(42rem, 80vw);
-    height: min(42rem, 80vw);
-    background: radial-gradient(
-      circle,
-      rgb(244 183 128 / 62%) 0%,
-      rgb(244 183 128 / 0%) 70%
-    );
-  }
-
-  .warm-glow-two {
-    bottom: -15rem;
-    left: -12rem;
-    width: min(38rem, 90vw);
-    height: min(38rem, 90vw);
-    background: radial-gradient(
-      circle,
-      rgb(231 157 105 / 34%) 0%,
-      rgb(231 157 105 / 0%) 72%
-    );
-  }
-
-  .benefit-card {
+  .benefit-card-brutal {
     opacity: 0;
-    transform: translateY(14px);
-    animation: card-in 600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    transform: translateY(16px) rotate(-0.5deg);
+    animation: card-in 520ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+  }
+
+  .benefit-card-brutal:nth-child(even) {
+    transform: translateY(16px) rotate(0.65deg);
+  }
+
+  .benefit-card-brutal:hover {
+    transform: translate(3px, 3px) rotate(0deg);
+    box-shadow: 3px 3px 0 var(--foreground);
   }
 }
 
 @keyframes card-in {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@media (max-width: 639px) {
+  .brutal-sticker {
+    top: -1rem;
+    right: -0.15rem;
+    width: 4.8rem;
+    height: 4.8rem;
+    font-size: 0.68rem;
+  }
+
+  .image-backplate {
+    inset: -0.45rem 0.35rem 0.55rem -0.35rem;
   }
 }
 
