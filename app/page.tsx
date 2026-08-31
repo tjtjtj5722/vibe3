@@ -43,25 +43,21 @@ export default function Home() {
           </p>
         </header>
 
-        <div className="mx-auto grid w-full max-w-7xl gap-9 px-5 pb-14 pt-5 sm:px-8 sm:pb-20 sm:pt-9 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:gap-14 lg:px-10 lg:pb-24 lg:pt-12">
+        <div className="mx-auto grid w-full max-w-7xl gap-9 px-5 pb-12 pt-4 sm:px-8 sm:pb-16 sm:pt-7 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-12 lg:px-10 lg:pb-20 lg:pt-9">
           <div className="relative z-10">
-            <p className="mb-6 inline-block -rotate-1 border-3 border-foreground bg-[#ffd44d] px-4 py-2 text-sm font-black shadow-[5px_5px_0_#211b17] sm:text-base">
+            <p className="mb-5 inline-block -rotate-1 border-3 border-foreground bg-[#ffd44d] px-3 py-2 text-xs font-black shadow-[4px_4px_0_#211b17] sm:px-4 sm:text-sm">
               내 차를 위한 다정한 선택 가이드
             </p>
-            <h1 className="max-w-2xl text-[clamp(3.1rem,8vw,6.65rem)] font-black leading-[0.94] tracking-[-0.075em] text-foreground">
-              자동차
-              <br />
-              다이렉트가
-              <br />
-              <span className="title-swipe">좋은 이유</span>
+            <h1 className="max-w-2xl text-[2.55rem] font-black leading-[1.02] tracking-[-0.07em] text-foreground sm:text-[3.15rem] md:text-[2.15rem] lg:text-[3rem] xl:text-[3.65rem]">
+              <span className="block whitespace-nowrap">자동차 다이렉트가</span>
+              <span className="title-swipe mt-2 inline-block">좋은 이유</span>
             </h1>
-            <p className="mt-7 max-w-lg border-l-4 border-foreground pl-4 text-base font-bold leading-7 sm:text-lg sm:leading-8">
-              어렵게 느껴지는 자동차 다이렉트,
-              <br className="hidden sm:block" /> 꼭 필요한 내용만 쉽고 빠르게 확인하세요.
+            <p className="mt-6 max-w-lg border-l-4 border-foreground pl-4 text-sm font-bold leading-6 sm:text-base sm:leading-7">
+              어렵게 느껴지는 자동차 다이렉트, 꼭 필요한 내용만 쉽고 빠르게 확인하세요.
             </p>
             <Button
               size="lg"
-              className="brutal-button mt-8 h-14 border-3 border-foreground bg-[#ff7148] px-7 text-base font-black text-foreground shadow-[6px_6px_0_#211b17] hover:bg-[#ff8a68] sm:h-16 sm:px-9 sm:text-lg"
+              className="brutal-button mt-6 h-12 border-3 border-foreground bg-[#ff7148] px-6 text-sm font-black text-foreground shadow-[5px_5px_0_#211b17] hover:bg-[#ff8a68] sm:h-14 sm:px-8 sm:text-base"
             >
               둘러보기
               <ArrowDownRight className="ml-1 size-6" strokeWidth={3} aria-hidden="true" />
