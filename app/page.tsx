@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { ArrowDownRight, BadgeCheck, Clock3, WalletCards } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -72,18 +71,15 @@ export default function Home() {
           <div className="relative z-10 mx-auto w-full max-w-3xl lg:mx-0">
             <div aria-hidden="true" className="image-backplate" />
             <figure className="brutal-image-frame relative overflow-hidden border-4 border-foreground bg-[#ffd44d] shadow-[10px_10px_0_#211b17]">
-              <Image
-                src="/hero-brutal.png"
-                alt="주황색과 파란색의 브루탈 그래픽 배경 위에 놓인 자동차"
-                width={1536}
-                height={1024}
-                priority
-                sizes="(max-width: 1024px) 100vw, 58vw"
-                className="aspect-[4/3] h-auto w-full object-cover object-center"
+              <img
+                src="/HOME.gif"
+                alt="자동차 이야기 메뉴를 소개하는 움직이는 이미지"
+                width="1920"
+                height="600"
+                loading="eager"
+                fetchPriority="high"
+                className="block h-auto w-full object-contain"
               />
-              <figcaption className="absolute bottom-3 left-3 border-3 border-foreground bg-white px-3 py-2 text-xs font-black shadow-[3px_3px_0_#211b17] sm:bottom-5 sm:left-5 sm:text-sm">
-                어렵지 않게, 직접 비교.
-              </figcaption>
             </figure>
             <div className="brutal-sticker" aria-hidden="true">
               EASY
