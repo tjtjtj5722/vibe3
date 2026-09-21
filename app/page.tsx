@@ -1,6 +1,7 @@
 import { ArrowDownRight, BadgeCheck, Clock3, WalletCards } from 'lucide-react';
+import Link from 'next/link';
 
-import { Button } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 
 const benefits = [
   {
@@ -29,7 +30,10 @@ const benefits = [
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
-      <section id="top" className="brutal-grid relative isolate min-h-screen border-b-4 border-foreground">
+      <section
+        id="top"
+        className="brutal-grid relative isolate min-h-screen border-b-4 border-foreground"
+      >
         <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
           <a
             href="#top"
@@ -53,15 +57,24 @@ export default function Home() {
               <span className="title-swipe mt-2 inline-block">좋은 이유</span>
             </h1>
             <p className="mt-6 max-w-lg border-l-4 border-foreground pl-4 text-sm font-bold leading-6 sm:text-base sm:leading-7">
-              어렵게 느껴지는 자동차 다이렉트, 꼭 필요한 내용만 쉽고 빠르게 확인하세요.
+              어렵게 느껴지는 자동차 다이렉트, 꼭 필요한 내용만 쉽고 빠르게
+              확인하세요.
             </p>
-            <Button
-              size="lg"
-              className="brutal-button mt-6 h-12 border-3 border-foreground bg-[#ff7148] px-6 text-sm font-black text-foreground shadow-[5px_5px_0_#211b17] hover:bg-[#ff8a68] sm:h-14 sm:px-8 sm:text-base"
+            <Link
+              href="/list"
+              className={buttonVariants({
+                size: 'lg',
+                className:
+                  'brutal-button mt-6 h-12 border-3 border-foreground bg-[#ff7148] px-6 text-sm font-black text-foreground shadow-[5px_5px_0_#211b17] hover:bg-[#ff8a68] sm:h-14 sm:px-8 sm:text-base',
+              })}
             >
               둘러보기
-              <ArrowDownRight className="ml-1 size-6" strokeWidth={3} aria-hidden="true" />
-            </Button>
+              <ArrowDownRight
+                className="ml-1 size-6"
+                strokeWidth={3}
+                aria-hidden="true"
+              />
+            </Link>
           </div>
 
           <div className="relative z-10 mx-auto w-full max-w-3xl lg:mx-0">
@@ -86,22 +99,32 @@ export default function Home() {
         </div>
 
         <div className="mx-auto grid w-full max-w-7xl gap-4 px-5 pb-12 sm:grid-cols-3 sm:px-8 sm:pb-16 lg:px-10">
-          {benefits.map(({ icon: Icon, number, title, description, color }, index) => (
-            <article
-              key={title}
-              className={`benefit-card-brutal ${color} border-3 border-foreground p-5 shadow-[6px_6px_0_#211b17] sm:p-6`}
-              style={{ animationDelay: `${120 + index * 100}ms` }}
-            >
-              <div className="flex items-start justify-between gap-4">
-                <Icon className="size-8" strokeWidth={2.7} aria-hidden="true" />
-                <span className="font-mono text-sm font-black">/{number}</span>
-              </div>
-              <h2 className="mt-8 text-xl font-black tracking-[-0.04em] sm:text-2xl">{title}</h2>
-              <p className="mt-2 text-sm font-bold leading-6 opacity-80 sm:text-base">
-                {description}
-              </p>
-            </article>
-          ))}
+          {benefits.map(
+            ({ icon: Icon, number, title, description, color }, index) => (
+              <article
+                key={title}
+                className={`benefit-card-brutal ${color} border-3 border-foreground p-5 shadow-[6px_6px_0_#211b17] sm:p-6`}
+                style={{ animationDelay: `${120 + index * 100}ms` }}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <Icon
+                    className="size-8"
+                    strokeWidth={2.7}
+                    aria-hidden="true"
+                  />
+                  <span className="font-mono text-sm font-black">
+                    /{number}
+                  </span>
+                </div>
+                <h2 className="mt-8 text-xl font-black tracking-[-0.04em] sm:text-2xl">
+                  {title}
+                </h2>
+                <p className="mt-2 text-sm font-bold leading-6 opacity-80 sm:text-base">
+                  {description}
+                </p>
+              </article>
+            ),
+          )}
         </div>
       </section>
     </main>

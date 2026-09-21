@@ -1,4 +1,8 @@
 import type { Metadata } from 'next';
+
+import { AuthHeader } from '@/components/auth-header';
+import { createClient } from '@/lib/supabase/server';
+
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -19,14 +23,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const supabase = await createClient();
+  const { data } = await supabase.auth.getClaims();
+  const email =
+    typeof data?.claims?.email === 'string' ? data.claims.email : null;
+
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <AuthHeader email={email} />
+        {children}
+      </body>
     </html>
   );
 }
